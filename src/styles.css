@@ -1,0 +1,123 @@
+/* futuristic / neon theme + layout helpers */
+
+/* smooth scrolling for route-to-anchor behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* CSS variables for theme */
+:root {
+  --bg-1: linear-gradient(135deg, #071029, #0b1b2a 40%, #0f2433);
+  --glass: rgba(255, 255, 255, 0.04);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --accent: #00f9ff; /* neon cyan */
+  --accent-2: #7c4dff; /* purple */
+  --glass-border: rgba(0, 255, 255, 0.08);
+}
+
+/* Light theme overrides */
+[data-theme="light"] {
+  --bg-1: linear-gradient(135deg, #f5f7fa, #e9eef6);
+  --glass: rgba(0, 0, 0, 0.03);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --accent: #0066cc;
+  --accent-2: #6a00ff;
+  --glass-border: rgba(0, 0, 0, 0.06);
+  color-scheme: light;
+}
+
+/* App background and base */
+body,
+.app-shell {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--bg-1);
+  color: #e6f7ff;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial;
+}
+
+/* make room for fixed navbar */
+.app-shell {
+  padding-top: 70px;
+}
+
+/* Navbar */
+.neon-navbar {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.15));
+  border-bottom: 1px solid var(--glass-border);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+.neon-brand {
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(0, 249, 255, 0.12),
+    0 0 20px rgba(124, 77, 255, 0.06);
+  font-weight: 700;
+}
+
+/* Sidebar (visible on md+) */
+.sidebar-col {
+  border-right: 1px solid var(--glass-border);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(0, 0, 0, 0.02)
+  );
+  min-height: calc(100vh - 70px);
+  padding-top: 1rem;
+}
+
+/* Card style (glass) */
+.fancy-card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.45);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.fancy-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 38px rgba(2, 6, 23, 0.6), 0 0 24px rgba(0, 249, 255, 0.06);
+}
+
+/* Neon headings */
+.h-neon {
+  color: #e6f7ff;
+  text-shadow: 0 0 6px rgba(0, 249, 255, 0.12),
+    0 0 18px rgba(124, 77, 255, 0.06);
+}
+
+/* active nav link style */
+.nav-link.active {
+  color: var(--accent) !important;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 249, 255, 0.06),
+    rgba(124, 77, 255, 0.04)
+  );
+  border-radius: 8px;
+}
+
+/* small utility */
+.section {
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* theme toggle button */
+.theme-toggle {
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* responsive adjustments */
+@media (max-width: 767px) {
+  .sidebar-col {
+    display: none;
+  }
+  .app-shell {
+    padding-top: 64px;
+  }
+}
